@@ -1,0 +1,25 @@
+<!-- views/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>My Blog</title>
+</head>
+<body>
+  <h1>My Blog</h1>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/post/<%= post._id %>"><%= post.title %></a>
+      </li>
+    <% }); %>
+  </ul>
+  <form action="/new" method="post">
+    <input type="text" name="title" placeholder="Title" required>
+    <textarea name="content" placeholder="Write your post..." required></textarea>
+    <button type="submit">Publish</button>
+  </form>
+</body>
+</html>
